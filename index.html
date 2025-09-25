@@ -51,6 +51,25 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .floating { animation: floating 3s ease-in-out infinite; }
         @keyframes floating { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+@keyframes spin-slow {
+  0% { transform: rotate(0deg) translateY(0px); }
+  50% { transform: rotate(180deg) translateY(-8px); }
+  100% { transform: rotate(360deg) translateY(0px); }
+}
+
+@keyframes spin-reverse {
+  0% { transform: rotate(360deg) translateY(0px); }
+  50% { transform: rotate(180deg) translateY(8px); }
+  100% { transform: rotate(0deg) translateY(0px); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 14s linear infinite;
+}
     </style>
 </head>
 <body class="bg-light">
@@ -105,18 +124,28 @@
                     </div>
                 </div>
                 <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center">
-                    <div class="floating relative w-72 h-72 mx-auto">
-    <!-- Cerchio sfondo -->
+                   <div class="floating relative w-80 h-80 mx-auto">
+    <!-- Cerchio di sfondo -->
     <div class="absolute inset-0 rounded-full bg-white/10 border border-white/30"></div>
-    
-    <!-- Monogramma -->
-    <div class="absolute inset-0 flex items-center justify-center">
-        <img src="logo-social.png" alt="Jacopo Capperucci - Logo" class="w-28 h-28 rounded-full shadow-lg">
+
+    <!-- Icona grafico -->
+    <div class="absolute top-6 left-10 w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg animate-spin-slow">
+        <i class="fas fa-chart-line text-white text-xl"></i>
     </div>
 
-    <!-- Icona finanza -->
-    <div class="absolute bottom-6 right-6 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-        <i class="fas fa-chart-line text-white text-2xl"></i>
+    <!-- Icona monete -->
+    <div class="absolute top-20 right-6 w-14 h-14 bg-accent rounded-full flex items-center justify-center shadow-lg animate-spin-reverse">
+        <i class="fas fa-coins text-white text-xl"></i>
+    </div>
+
+    <!-- Icona stretta di mano -->
+    <div class="absolute bottom-16 left-6 w-14 h-14 bg-secondary rounded-full flex items-center justify-center shadow-lg animate-spin-slow">
+        <i class="fas fa-handshake text-white text-xl"></i>
+    </div>
+
+    <!-- Icona euro -->
+    <div class="absolute bottom-8 right-10 w-14 h-14 bg-dark rounded-full flex items-center justify-center shadow-lg animate-spin-reverse">
+        <i class="fas fa-euro-sign text-white text-xl"></i>
     </div>
 </div>
                 </div>
