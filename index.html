@@ -105,16 +105,20 @@
                     </div>
                 </div>
                 <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center">
-                    <div class="floating">
-                        <svg class="w-80 h-80" viewBox="0 0 400 400" fill="none">
-                            <circle cx="200" cy="200" r="180" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-                            <circle cx="200" cy="200" r="120" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-                            <circle cx="200" cy="200" r="60" fill="rgba(255,255,255,0.3)"/>
-                            <path d="M160 180h80v40h-80z" fill="white" opacity="0.8"/>
-                            <path d="M180 160h40v20h-40z" fill="white" opacity="0.6"/>
-                            <path d="M170 220h60v10h-60z" fill="white" opacity="0.7"/>
-                        </svg>
-                    </div>
+                    <div class="floating relative w-72 h-72 mx-auto">
+    <!-- Cerchio sfondo -->
+    <div class="absolute inset-0 rounded-full bg-white/10 border border-white/30"></div>
+    
+    <!-- Monogramma -->
+    <div class="absolute inset-0 flex items-center justify-center">
+        <img src="logo-social.png" alt="Jacopo Capperucci - Logo" class="w-28 h-28 rounded-full shadow-lg">
+    </div>
+
+    <!-- Icona finanza -->
+    <div class="absolute bottom-6 right-6 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+        <i class="fas fa-chart-line text-white text-2xl"></i>
+    </div>
+</div>
                 </div>
             </div>
         </div>
