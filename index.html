@@ -38,6 +38,13 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .animate-fade-in { animation: fadeIn 0.8s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .floating { animation: floating 3s ease-in-out infinite; }
+    @keyframes floating { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
   </style>
 </head>
 <body class="bg-light">
@@ -47,35 +54,31 @@
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
       <div class="text-2xl font-bold text-primary">Jacopo Capperucci</div>
       <div class="hidden md:flex space-x-8">
+        <a href="#home" class="hover:text-primary">Home</a>
         <a href="#servizi" class="hover:text-primary">Servizi</a>
         <a href="#chi-sono" class="hover:text-primary">Chi Sono</a>
-        <a href="#come-lavoro" class="hover:text-primary">Come Lavoro</a>
-        <a href="#faq" class="hover:text-primary">FAQ</a>
         <a href="#contatti" class="hover:text-primary">Contatti</a>
       </div>
     </nav>
   </header>
 
-  <!-- Hero con foto -->
-  <section id="home" class="pt-32 pb-20 bg-gray-50">
-    <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
-      
-      <!-- Foto -->
-      <div class="lg:w-1/2 flex justify-center">
-        <img src="foto-jacopo.jpg" alt="Jacopo Capperucci" class="rounded-2xl shadow-lg max-w-sm">
-      </div>
+  <!-- Hero -->
+  <section id="home" class="relative gradient-bg text-white pt-32 pb-20">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/30"></div>
 
-      <!-- Testo -->
-      <div class="lg:w-1/2 text-center lg:text-left">
-        <h1 class="text-4xl lg:text-5xl font-bold text-dark mb-4">Jacopo Capperucci</h1>
-        <h2 class="text-2xl font-semibold text-primary mb-6">Agente in Attività Finanziaria & Consulente Finanziario OCF</h2>
-        <p class="text-gray-700 text-lg mb-8">Soluzioni di credito e consulenza finanziaria su misura per privati e imprese. Dalla Ciociaria al Lazio, con attenzione alle persone oltre che alle loro esigenze.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <a href="#contatti" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Contattami</a>
-          <a href="https://wa.me/393337979638" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-green-600 transition">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-          </a>
-        </div>
+    <div class="relative container mx-auto px-6 text-center">
+      <h1 class="text-5xl font-bold mb-6 drop-shadow-lg">
+        Il tuo Agente in Attività Finanziaria
+      </h1>
+      <p class="text-xl mb-8 max-w-2xl mx-auto drop-shadow">
+        Prestiti personali, cessione del quinto e soluzioni per privati e imprese a Frosinone e in tutta la Ciociaria.
+      </p>
+      <div class="flex justify-center gap-4">
+        <a href="#contatti" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">Richiedi Consulenza</a>
+        <a href="https://wa.me/393337979638" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-green-600 transition">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
       </div>
     </div>
   </section>
@@ -83,37 +86,37 @@
   <!-- Servizi -->
   <section id="servizi" class="py-20 bg-white">
     <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-12">Servizi</h2>
+      <h2 class="text-4xl font-bold mb-12">I Miei Servizi</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-8 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+        <div class="p-8 bg-gray-50 rounded-xl shadow card-hover">
           <i class="fas fa-hand-holding-usd text-primary text-3xl mb-4"></i>
           <h3 class="text-xl font-semibold mb-3">Prestiti Personali</h3>
-          <p class="text-gray-600">Soluzioni personalizzate con tassi competitivi per realizzare i tuoi progetti.</p>
+          <p class="text-gray-600">Finanziamenti personalizzati con tassi competitivi.</p>
         </div>
-        <div class="p-8 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+        <div class="p-8 bg-gray-50 rounded-xl shadow card-hover">
           <i class="fas fa-percentage text-secondary text-3xl mb-4"></i>
           <h3 class="text-xl font-semibold mb-3">Cessione del Quinto</h3>
-          <p class="text-gray-600">Prestiti garantiti con rate fisse su stipendio o pensione, assicurazione inclusa.</p>
+          <p class="text-gray-600">Prestiti garantiti con rate fisse e assicurazione.</p>
         </div>
-        <div class="p-8 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+        <div class="p-8 bg-gray-50 rounded-xl shadow card-hover">
           <i class="fas fa-briefcase text-accent text-3xl mb-4"></i>
           <h3 class="text-xl font-semibold mb-3">Prestiti Societari</h3>
-          <p class="text-gray-600">Finanziamenti su misura per liberi professionisti e imprese.</p>
+          <p class="text-gray-600">Finanziamenti per imprese e professionisti.</p>
         </div>
-        <div class="p-8 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+        <div class="p-8 bg-gray-50 rounded-xl shadow card-hover">
           <i class="fas fa-file-invoice-dollar text-primary text-3xl mb-4"></i>
           <h3 class="text-xl font-semibold mb-3">Factoring</h3>
-          <p class="text-gray-600">Anticipo su fatture e crediti commerciali per migliorare la liquidità aziendale.</p>
+          <p class="text-gray-600">Anticipo su fatture e crediti commerciali.</p>
         </div>
-        <div class="p-8 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+        <div class="p-8 bg-gray-50 rounded-xl shadow card-hover">
           <i class="fas fa-car text-secondary text-3xl mb-4"></i>
           <h3 class="text-xl font-semibold mb-3">Leasing Auto</h3>
-          <p class="text-gray-600">Soluzioni di leasing per veicoli aziendali e professionali.</p>
+          <p class="text-gray-600">Leasing e finanziamenti per veicoli aziendali.</p>
         </div>
-        <div class="p-8 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+        <div class="p-8 bg-gray-50 rounded-xl shadow card-hover">
           <i class="fas fa-key text-accent text-3xl mb-4"></i>
           <h3 class="text-xl font-semibold mb-3">Noleggio Lungo Termine</h3>
-          <p class="text-gray-600">Noleggio con servizi inclusi e massima flessibilità per privati e aziende.</p>
+          <p class="text-gray-600">Noleggio con servizi inclusi e flessibilità.</p>
         </div>
       </div>
     </div>
@@ -121,67 +124,26 @@
 
   <!-- Chi Sono -->
   <section id="chi-sono" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6 text-center max-w-3xl">
-      <h2 class="text-4xl font-bold text-dark mb-6">Chi Sono</h2>
-      <p class="text-lg text-gray-600 mb-6">
-        <strong>Agente in Attività Finanziaria iscritto OAM</strong> e <strong>Consulente Finanziario iscritto OCF</strong>.  
-        Offro consulenza trasparente e soluzioni personalizzate per privati e aziende.
-      </p>
-      <p class="text-gray-600 mb-6">
-        Credo che dietro ogni esigenza ci siano prima di tutto le persone, con i loro progetti e le loro storie: il mio obiettivo è accompagnarle in un percorso finanziario chiaro e sostenibile.
-      </p>
-      <div class="grid grid-cols-2 gap-4 mb-8 text-left">
-        <div class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Consulenza Personalizzata</div>
-        <div class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Massima Trasparenza</div>
-        <div class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Soluzioni Su Misura</div>
-        <div class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Supporto Continuo</div>
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+      <div class="lg:w-1/2 flex justify-center">
+        <img src="foto-jacopo.jpg" alt="Jacopo Capperucci" class="rounded-2xl shadow-lg max-w-sm">
       </div>
-      <a href="#contatti" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Contattami Ora</a>
-    </div>
-  </section>
-
-  <!-- Come Lavoro -->
-  <section id="come-lavoro" class="py-20 bg-white">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-12">Come Lavoro</h2>
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="bg-gray-50 p-6 rounded-xl shadow">
-          <i class="fas fa-search text-primary text-2xl mb-3"></i>
-          <h3 class="font-semibold">Analisi</h3>
-          <p class="text-gray-600 text-sm">Studio della tua situazione finanziaria.</p>
+      <div class="lg:w-1/2">
+        <h2 class="text-4xl font-bold text-dark mb-6">Chi Sono</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          <strong>Agente in Attività Finanziaria iscritto OAM</strong> e <strong>Consulente Finanziario iscritto OCF</strong>.  
+          Offro consulenza trasparente e soluzioni personalizzate per privati e aziende.
+        </p>
+        <p class="text-gray-600 mb-6">
+          Credo che dietro ogni esigenza ci siano prima di tutto le persone, con i loro progetti e le loro storie: il mio obiettivo è accompagnarle in un percorso finanziario chiaro e sostenibile.
+        </p>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Consulenza Personalizzata</div>
+          <div class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Massima Trasparenza</div>
+          <div class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Soluzioni Su Misura</div>
+          <div class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i> Supporto Continuo</div>
         </div>
-        <div class="bg-gray-50 p-6 rounded-xl shadow">
-          <i class="fas fa-file-signature text-secondary text-2xl mb-3"></i>
-          <h3 class="font-semibold">Proposta</h3>
-          <p class="text-gray-600 text-sm">Offerta di soluzioni su misura.</p>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-xl shadow">
-          <i class="fas fa-check text-accent text-2xl mb-3"></i>
-          <h3 class="font-semibold">Approvazione</h3>
-          <p class="text-gray-600 text-sm">Gestione della pratica e approvazione.</p>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-xl shadow">
-          <i class="fas fa-handshake text-dark text-2xl mb-3"></i>
-          <h3 class="font-semibold">Erogazione</h3>
-          <p class="text-gray-600 text-sm">Consegna del finanziamento e supporto continuo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6 max-w-3xl">
-      <h2 class="text-4xl font-bold text-center mb-12">Domande frequenti</h2>
-      <div class="space-y-6">
-        <details class="bg-white p-6 rounded-lg shadow">
-          <summary class="font-semibold cursor-pointer">Quanto tempo serve per ottenere un prestito personale?</summary>
-          <p class="mt-3 text-gray-600">Di norma 48–72 ore dalla consegna della documentazione completa.</p>
-        </details>
-        <details class="bg-white p-6 rounded-lg shadow">
-          <summary class="font-semibold cursor-pointer">Quali documenti servono?</summary>
-          <p class="mt-3 text-gray-600">Documento d’identità, codice fiscale, ultime buste paga o cedolini pensione, CUD/730.</p>
-        </details>
+        <a href="#contatti" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Contattami Ora</a>
       </div>
     </div>
   </section>
